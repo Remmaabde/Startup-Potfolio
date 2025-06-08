@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<script src="Script.js"></script>
 <link rel="stylesheet" href="Styles/Style.css">    
 <title>AMI Blind Assistant</title>
 </head>
@@ -12,7 +13,7 @@
     <div class="container">
         <header class="header">
             <div class="left-header">
-           <img src="Assets/Images/healthicons--eyeglasses.svg" alt="Our Logo">
+           <img src="Assets/Images/Eye-glass.svg" alt="Our Logo">
            <h1>AMI</h1>
         </div>
         <nav>
@@ -63,9 +64,74 @@
                 spaces into accessible places, and every step into a confident journey.</p>
                <img src="Assets/Images/Man_using_AMI.jpg" class="Illustration" alt="Illustration of a man using AMI">
             </div>
-            
-
         </section>
+
+        <section class="Product">
+            <h1 class="Product-header">Product Features</h1>
+          
+            <div class="carousel-container">
+              <button class="carousel-btn left" onclick="moveSlide(-1)">❮</button>
+          
+              <div class="carousel-track">
+                <div class="Product-card">
+                  <img src="Assets/Images/Application.svg" alt="Application">
+                  <h2>AMI Guide App</h2>
+                  <p>
+                    A voice guided navigation app 📱 featuring real-time spoken directions <br>
+                    in Amharic, powered by GPS, Voice AI, Computer vision and Amharic NLP, <br>
+                    enabling blind users to confidently navigate unfamiliar areas using <br>
+                    instructions in their native tongue.
+                  </p>
+                </div>
+          
+                <div class="Product-card">
+                  <img src="Assets/Images/Eye-glass.svg" alt="Smart Glasses">
+                  <h2>AMI Smart Glasses</h2>
+                  <p>
+                    Smart glasses for low vision users 🕶️ equipped with object detection and <br>
+                     audio feedback through a built-in camera, edge detection, and sound output, <br>
+                      helping wearers avoid obstacles and move independently with greater safety and awareness.
+                  </p>
+                </div>
+          
+                <div class="Product-card">
+                  <img src="Assets/Images/Stick.svg" alt="Smart Stick">
+                  <h2>AMI Smart Stick</h2>
+                  <p>
+                    A Bluetooth smart stick 🦯 that connects to smartphones or AirPods using ultrasonic sensors, <br>
+                    vibration alerts, IOT, and audio signals, empowering blind individuals to detect nearby <br>
+                     obstacles and walk freely and securely with tech tool.
+                  </p>
+                </div>
+              </div>
+          
+              <button class="carousel-btn right" onclick="moveSlide(1)">❯</button>
+            </div>
+          </section>
+
+          <section class="Audience">
+            <div class="audience-toggle">
+  <button onclick="switchTo('student')" id="studentBtn" class="active">For Students</button>
+  <button onclick="switchTo('mentor')" id="mentorBtn">For Mentors</button>
+</div>
+
+<div class="audience-container">
+  <div id="student" class="audience-card visible">
+    <h2>Hi Students 🎓</h2>
+    <p>Helpful tips and student-only vibes live here.</p>
+  </div>
+
+  <div id="mentor" class="audience-card">
+    <h2>Hey Mentors 🧑🏽‍🏫</h2>
+    <p>Resources and guidance tailored just for you.</p>
+  </div>
+</div>
+  
+              
+          </section>
+              
+
+        
     </div>
 </body>
 </html>

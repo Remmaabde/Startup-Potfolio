@@ -116,6 +116,9 @@ img.Illustration{
     height: auto;
     margin-left:35%;
 }
+.about-us{
+    background: #F1FAEE;
+}
 .about-header{
     display: flex;
     justify-content: flex-start;
@@ -123,7 +126,8 @@ img.Illustration{
     gap:20px;
     align-items: center;
     margin-left:6%;
-    margin-top: 20px;
+    //margin-top: 20px;
+    padding-top:10px;
 }
 div.main{
     display:grid;
@@ -142,7 +146,129 @@ div.main{
     font-weight:200;
     text-align: justify;
 }
+.Product {
+    background: #F9FAFB;
+    padding: 2rem;
+    text-align: center;
+}
+.Product-header {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 80%; 
+    max-height: 70vh;
+    margin: 0 auto;
+}
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+.Product-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+    background: #CAF0F8;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.Product-card img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+.carousel-btn {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+    z-index: 1;
+}
+.carousel-btn.left {
+    left: -20px;
+}
+.carousel-btn.right {
+    right: -20px;
+}
+.audience-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
   
+  .audience-toggle button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #d1d5db;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .audience-toggle button.active {
+    background-color: #4f46e5;
+    color: white;
+  }
+  
+  /* Container centered with max-width */
+  .audience-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 450px;
+    height: 260px;
+    position: relative;
+  }
+  
+  /* Card Styling */
+  .audience-card {
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    padding: 30px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    transform: scale(0.98);
+    pointer-events: none;
+    text-align: center;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .audience-card.visible {
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+  }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -220,6 +346,59 @@ div.main {
     line-height: 1.5;
     padding: 0 10px;
     text-align: left;
+}
+.Product {
+    background: #F9FAFB;
+    padding: 1rem;
+    text-align: center;
+}
+.Product-header {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 30%; 
+    max-height: 35vh;
+    margin: 0 auto;
+}
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+.Product-card {
+    flex: 0 0 50%;
+    max-width: 100%;
+    background: #CAF0F8;
+    padding: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.Product-card img {
+    width: 40px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+.carousel-btn {
+    position: absolute;
+    top: 20%;
+    transform: translateY(-50%);
+    background-color: #0077b6;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+    z-index: 1;
+}
+.carousel-btn.left {
+    left: -20px;
+}
+.carousel-btn.right {
+    right: -20px;
 }
 }
   
