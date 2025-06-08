@@ -260,50 +260,44 @@ div.main{
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-
-  .faq h2 {
+}
+.faq h2 {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
-  }
-
-  .faq-item {
+}
+.faq-item {
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
-  }
-
-  .faq-question {
+}
+.faq-question {
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-weight: bold;
     font-size: 16px;
-  }
-
-  .faq-answer {
+}
+.faq-answer {
     display: none;
     margin-top: 10px;
     color: #555;
     font-size: 14px;
-  }
-
-  .faq-question.active + .faq-answer {
+}
+.faq-question.active + .faq-answer {
     display: block;
-  }
-
-  .icon {
+}
+.icon {
     color: #6c63ff;
     font-size: 18px;
     margin-left: 10px;
 }
 .testimonials {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      margin-top:3%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top:3%;
     }
 h2.Testimonals{
     display:flex;
@@ -344,7 +338,173 @@ h2.Testimonals{
     scroll-snap-align: start;
     border-radius: 10px;
 }
+.meet-the-team {
+    margin-top: 3%;
+}
+.meet-the-team h1{
+    display: flex;
+    justify-content: center;
+}
+.team-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    gap: 5px;
+    margin-top:5%;
+}
+.team-member{
+    background: #F1FAEE;
+    height:auto;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+}
+img.teams{
+    width:150px;
+    height:150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.chat-container {
+    width: 40%;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding: 20px;
+    display: flex;
+    margin: 0 auto;
+    margin-top:10%;
+    flex-direction: column;
+    gap: 15px;
+  }
   
+  .chat-header {
+    background-color:rgb(8, 42, 80);
+    color: white;
+    text-align: center;
+    padding: 12px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+  
+  .chat-box {
+    background-color: #e9f1fb;
+    border-radius: 14px;
+    padding: 16px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .bot-message {
+    background-color: #d2e3fc;
+    padding: 10px 14px;
+    border-radius: 12px;
+    max-width: 80%;
+  }
+  
+  .thinking-icon {
+    font-size: 24px;
+    align-self: flex-start;
+  }
+  
+  .chat-response {
+    background-color: #f6f8fa;
+    padding: 10px;
+    border-radius: 10px;
+    min-height: 30px;
+    color: #333;
+  }
+  
+  .divider {
+    border: none;
+    height: 1px;
+    background-color: #ccc;
+  }
+  
+  .chat-input-area {
+    display: flex;
+    gap: 10px;
+  }
+  
+  #user-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  #send-btn {
+    padding: 10px 16px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #send-btn:hover {
+    background-color: #3b7dc4;
+}
+.contact {
+    background:#F1FAEE;
+    padding: 40px 20px;
+    max-width: 500px;
+    margin: auto;
+    margin-top:5%;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.contact h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #1d3557; /* Deep blue */
+}
+.fields h3 {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #333333;
+}
+.fields input[type="text"],
+.fields input[type="email"],
+.fields textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: border 0.3s ease;
+}
+.fields textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+.fields input:focus,
+.fields textarea:focus {
+    border-color: #1d3557;
+    outline: none;
+}
+.Send {
+    background-color: #1d3557;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+.Send:hover {
+    background-color: #16324f;
+}
 
 
 
@@ -512,16 +672,46 @@ div.main {
 .testimonials {
     flex-direction: row;
     justify-content: center;
-  }
-  .faq {
-    max-width: 80%;
-    background:#EDF2F4;
-    margin-top:17%;
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-
 }
+.team-container {
+    grid-template-columns: 1fr; /* Stacks the members */
+    gap: 1rem;
+    padding: 0 1rem;
+}
+
+img.teams {
+    width: 120px;
+    height: 120px;
+}
+.team-member {
+    padding: 1rem;
+}
+.meet-the-team h1 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+.contact {
+    padding: 30px 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+.contact h1 {
+    font-size: 1.5rem;
+}
+.fields h3 {
+    font-size: 0.95rem;
+}
+.fields input[type="text"],
+.fields input[type="email"],
+.fields textarea {
+    font-size: 0.95rem;
+    padding: 10px;
+}
+.Send {
+    font-size: 1rem;
+    padding: 10px;
+}
+}
+
+
+
   
