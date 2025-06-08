@@ -34,7 +34,22 @@ function switchTo(target) {
     document.getElementById('mentorBtn').classList.remove('active');
     document.getElementById(target + 'Btn').classList.add('active');
 }
+//FAQ Acordion
+// Select all faq-item elements
+const questions = document.querySelectorAll('.faq-question');
 
+    questions.forEach(q => {
+      q.addEventListener('click', () => {
+        // Close all questions first
+        questions.forEach(item => {
+          item.classList.remove('active');
+          item.querySelector('.icon').textContent = '+';
+        });
 
-
-
+        // If not already open, open this one
+        if (!q.classList.contains('active')) {
+          q.classList.add('active');
+          q.querySelector('.icon').textContent = '-';
+        }
+      });
+    });
