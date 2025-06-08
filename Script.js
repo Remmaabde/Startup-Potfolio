@@ -67,3 +67,10 @@ const questions = document.querySelectorAll('.faq-question');
           feedback.style.color = "#f44336"; // red
         }
       });
+      window.onload = function(){
+     const visitcountspan = document.getElementById(visit-count);
+     let visitCount = localStorage.getItem('visitCount') || 0;
+      visitcount++;
+      localStorage.setItem('visitCount', visitCount);
+        visitcountspan.textContent = visitCount;
+    };

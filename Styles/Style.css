@@ -787,6 +787,30 @@ img.teams {
     font-size: 1rem;
     border-radius: 10px;
   }
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    text-align: left;
+    padding: 20px;
+  }
+
+  .social-icons {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .social-icons i {
+    font-size: 1.2rem;
+  }
+
+  .github-link,
+  .linkedin-link {
+    font-size: 1rem;
+    color: #3b82f6;
+    text-decoration: none;
+  }
 
 }
 
