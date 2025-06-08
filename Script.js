@@ -23,8 +23,8 @@ function moveSlide(direction) {
 }
 function switchTo(target) {
     // Hide both
-    document.getElementById('student').classList.remove('visible');
-    document.getElementById('mentor').classList.remove('visible');
+    document.getElementById('User').classList.remove('visible');
+    document.getElementById('Partner').classList.remove('visible');
 
     // Show selected
     document.getElementById(target).classList.add('visible');
