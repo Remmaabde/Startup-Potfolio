@@ -53,3 +53,17 @@ const questions = document.querySelectorAll('.faq-question');
         }
       });
     });
+    document.getElementById('emailForm').addEventListener('submit', function (e) {
+        e.preventDefault(); // stop actual submission
+      
+        const emailInput = document.getElementById('emailInput');
+        const feedback = document.getElementById('feedbackMsg');
+      
+        if (emailInput.checkValidity()) {
+          feedback.textContent = "Email looks good! Sending... (not really tho 😅)";
+          feedback.style.color = "#4caf50"; // green
+        } else {
+          feedback.textContent = "Oops! Please enter a valid email address.";
+          feedback.style.color = "#f44336"; // red
+        }
+      });
