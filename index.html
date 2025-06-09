@@ -372,7 +372,7 @@ async function sendMessage() {
     console.error('Error sending message:', error);
     hideTyping();
 
-    // Use fallback if Puter call fails
+// Use fallback if Puter call fails
     addMessage(getFallbackResponse(message));
   }
 
