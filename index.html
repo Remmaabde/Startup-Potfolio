@@ -324,7 +324,7 @@ function getFallbackResponse(message) {
 
   if (message.includes('founder') || message.includes('who what where')) {
     return "AMI Blind Assistant was founded by a passionate team and Founder Reem Abdella dedicated to empowering visually impaired people through accessible Computer Vision technology.";
-  } else if (message.includes('problem')) {
+  } else if (message.includes('problem') || (message.includes('issue'))) {
     return "We solve accessibility barriers faced by visually impaired individuals by offering voice guidance and computer vision features.";
   } else if (message.includes('service') || message.includes('product')) {
     return "Our product is an AI app that helps visually impaired users navigate daily life using voice commands and smart vision tech.";
