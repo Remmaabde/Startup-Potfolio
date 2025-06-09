@@ -22,11 +22,11 @@ function moveSlide(direction) {
     track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
 }
 function switchTo(target) {
-    // Hide both
+    // This will Hide both elements
     document.getElementById('User').classList.remove('visible');
     document.getElementById('Partner').classList.remove('visible');
 
-    // Show selected
+    // SThis wil show selected element
     document.getElementById(target).classList.add('visible');
 
     // Button visual toggle
@@ -34,16 +34,28 @@ function switchTo(target) {
     document.getElementById('mentorBtn').classList.remove('active');
     document.getElementById(target + 'Btn').classList.add('active');
 }
+let counterContainer = document.querySelector('#visit_count');
+let visitCount = localStorage.getItem("page_view");
+
+if (visitCount) {
+    visitCount = Number(visitCount) + 1;
+    localStorage.setItem("page_view", visitCount);
+} else {
+    visitCount = 1;
+    localStorage.setItem("page_view", 1);
+}
+
+counterContainer.textContent = visitCount;
+ // Display the count in the container
 //FAQ Acordion
-// Select all faq-item elements
 
   function toggleFAQ(element) {
-    const question = element;
-    const answer = question.nextElementSibling;
+    const question = element; //holds question
+    const answer = question.nextElementSibling; // holds the answer which is next to question
 
-    question.classList.toggle('active');
+    question.classList.toggle('active'); //Adds a class called active , it's like on & off
 
-    if (question.classList.contains('active')) {
+    if (question.classList.contains('active')) { // if the class is active display the block otherwise hide
       answer.style.display = 'block';
     } else {
       answer.style.display = 'none';
@@ -51,24 +63,4 @@ function switchTo(target) {
   }
 
 
-    document.getElementById('emailForm').addEventListener('submit', function (e) {
-        e.preventDefault(); // stop actual submission
-      
-        const emailInput = document.getElementById('emailInput');
-        const feedback = document.getElementById('feedbackMsg');
-      
-        if (emailInput.checkValidity()) {
-          feedback.textContent = "Email looks good! Sending... (not really tho 😅)";
-          feedback.style.color = "#4caf50"; // green
-        } else {
-          feedback.textContent = "Oops! Please enter a valid email address.";
-          feedback.style.color = "#f44336"; // red
-        }
-      });
-      window.onload = function(){
-     const visitcountspan = document.getElementById(visit-count);
-     let visitCount = localStorage.getItem('visitCount') || 0;
-      visitcount++;
-      localStorage.setItem('visitCount', visitCount);
-        visitcountspan.textContent = visitCount;
-    };
+    
