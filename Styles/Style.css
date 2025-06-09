@@ -556,10 +556,10 @@ i.fa-linkedin{
 .sample-question{
     display:flex;
     justify-content: center;
+    background:#fff;
     max-width:70%;
     margin: 0 auto;
-}
-  
+} 
 
 
 

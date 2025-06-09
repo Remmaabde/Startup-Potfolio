@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <script src="https://js.puter.com/v2/"></script>
+<script src="Script.js"></script>
 <link rel="stylesheet" href="Styles/Style.css">    
 <title>AMI Blind Assistant</title>
 </head>
@@ -207,7 +208,7 @@
         <button onclick="sendMessage()" id="send-btn">Send</button>
       </div>
     </div>
-  
+  <!--
     <div class="sample-question">
       <h2>Sample Questions</h2>
       <ul>
@@ -225,6 +226,7 @@
         </li>
       </ul>
     </div>
+    -->
   
 
       <section class="contact" id="contact">
@@ -255,19 +257,10 @@
         
     </div>
     <button id="topBtn">⬆️</button>
-    <script src="Script.js">
+    <script>
       let puterInitialized = false;
-async function initializePuter() {
-  if (puterInitialized) return;
-  try {
-    console.log("Initializing Puter...");
-    puterInitialized = true;
-  } catch (e) {
-    console.error("Error initializing Puter:", e);
-    puterInitialized = false;
-  }
-}
 
+// Your startup's personalized context - vibe with your origin story, mission, team, and vision
 const StartUp_Profile = ` Our startup is called AMIBlind Assistant, founded by Reem Abdella a passionate computer science student from Ethiopia. 
 We always dreamt to empower and assist the visually impaired ethiopian people with smart assistive technology. 
 Our Main products are an AI-powered voice navigation tool using computer vision, 
@@ -279,76 +272,141 @@ We are committed to creating innovative solutions that enhance the lives of visu
 Our products are designed to be user-friendly, affordable, and effective in providing independence and confidence to our users. 
 Our long-term vision? To be the leading African innovator in accessible technology.
 `;
-// DOM references
-const chatBox = document.getElementById("chat-response");
-const chatInput = document.getElementById("user-input");
-const sendButton = document.getElementById("send-btn");
-const typingIndicator = document.getElementById("typingIndicator");
 
-// ✉️ Add messages to chat
+async function initializePuter() {
+  if (puterInitialized) return;
+
+  try {
+    console.log('Initializing Puter...');
+    puterInitialized = true;
+  } catch (error) {
+    console.error('Error initializing Puter:', error);
+    puterInitialized = false;
+  }
+}
+//puter.ai.chat(`What is AMIs?`).then(puter.print);
+
+// DOM Elements
+const chatBox = document.querySelector('.chat-box');
+const chatResponse = document.getElementById('chat-response');
+const userInput = document.getElementById('user-input');
+const sendBtn = document.getElementById('send-btn');
+const typingIndicator = document.getElementById('typingIndicator');
+
+// Show typing indicator
+function showTyping() {
+  typingIndicator.style.display = 'block';
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Hide typing indicator
+function hideTyping() {
+  typingIndicator.style.display = 'none';
+}
+
+// Append a message bubble to chat
 function addMessage(content, isUser = false) {
-  const div = document.createElement("div");
-  div.className = isUser ? "user-message" : "bot-message";
-  div.innerHTML = `<p>${content}</p>`;
-  chatBox.appendChild(div);
+  const msgDiv = document.createElement('div');
+  msgDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+
+  // Wrap content in a <p> for styling
+  const p = document.createElement('p');
+  p.textContent = content;
+
+  msgDiv.appendChild(p);
+  chatBox.insertBefore(msgDiv, typingIndicator);
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// 💭 Typing indicator
-function showTyping(show) {
-  typingIndicator.style.display = show ? "block" : "none";
-  chatBox.scrollTop = chatBox.scrollHeight;
+// Fallback answers for common questions, if AI call fails
+function getFallbackResponse(message) {
+  message = message.toLowerCase();
+
+  if (message.includes('founder')) {
+    return "AMI Blind Assistant was founded by a passionate team and Founder Reem Abdella dedicated to empowering visually impaired people through accessible Computer Vision technology.";
+  } else if (message.includes('problem')) {
+    return "We solve accessibility barriers faced by visually impaired individuals by offering voice guidance and computer vision features.";
+  } else if (message.includes('service') || message.includes('product')) {
+    return "Our product is an AI app that helps visually impaired users navigate daily life using voice commands and smart vision tech.";
+  } else if (message.includes('contact') || message.includes('support')) {
+    return "You can support us or reach out via email at support@amiblindassistant.com  or Reemabdella702@gmail.com or connect through our social media channels .";
+  } else if (message.includes('vision') || message.includes('goal')) {
+    return "Our long-term goal is to create a more inclusive Africa where technology enables independence for everyone, regardless of ability.";
+  } else {
+    return "Ask me anything about AMI Blind Assistant's story, services, or how to get involved, Am here to help!";
+  }
 }
 
-// 🚀 Send user message + AI response
+// Send user message and get response from puter AI
 async function sendMessage() {
-  const msg = chatInput.value.trim();
-  if (!msg) return;
+  const message = userInput.value.trim();
+  if (!message) return;
 
-  addMessage(msg, true);
-  chatInput.value = "";
-  sendButton.disabled = true;
-  showTyping(true);
+  // Add user message to chat
+  addMessage(message, true);
+  userInput.value = '';
+  sendBtn.disabled = true;
+
+  showTyping();
 
   try {
     await initializePuter();
 
-    const fullPrompt = `${personalContext}
+    const fullPrompt = `${personalContext}\n\nUser question: ${message}\n\nPlease respond as AMI Blind Assistant's AI, providing accurate, friendly info based on the context.`;
 
-User question: ${msg}
-
-Respond in an engaging, helpful tone, in AMI’s brand voice.`;
+    // Here CAlling Puter 
     const response = await puter.ai.chat(fullPrompt, {
-      model: "gpt-4",
+      model: 'gpt-4',
       temperature: 0.7,
-      max_tokens: 450,
+      max_tokens: 500,
     });
 
-    showTyping(false);
-    addMessage(response?.message || "Sorry, I didn’t get that. Could you rephrase?");
-  } catch (err) {
-    console.error(err);
-    showTyping(false);
-    addMessage("Oops! Something went wrong. Please try again later.");
-  } finally {
-    sendButton.disabled = false;
+    hideTyping();
+
+    if (response && response.message) {
+      addMessage(response.message);
+    } else {
+      addMessage("Hey! I'm here to help. Ask me anything about AMI Blind Assistant!");
+    }
+  } catch (error) {
+    console.error('Error sending message:', error);
+    hideTyping();
+
+    // Use fallback if Puter call fails
+    addMessage(getFallbackResponse(message));
   }
+
+  sendBtn.disabled = false;
 }
 
-// 🧠 Sample question click handler
-function askQuestion(q) {
-  chatInput.value = q;
+// For the sample clickable questions
+function askQuestion(question) {
+  userInput.value = question;
   sendMessage();
 }
-window.askQuestion = askQuestion;
 
-// ✉️ "Enter" triggers send
-chatInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") sendMessage();
+
+sendBtn.addEventListener('click', sendMessage);
+
+userInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    sendMessage();
+  }
 });
 
-// Initialize Puter ready for live interaction
-window.addEventListener("load", initializePuter);
+// On page load, init Puter
+window.addEventListener('load', initializePuter);
+
+// Initial UI message
+window.addEventListener('load', () => {
+  const instruction = document.createElement('div');
+  instruction.style.textAlign = 'center';
+  instruction.style.fontStyle = 'italic';
+  instruction.style.color = '#555';
+  instruction.style.marginBottom = '10px';
+  instruction.textContent = "Ask our AI about our story, services, or how you can get involved.";
+  document.querySelector('.chat-container').insertBefore(instruction, document.querySelector('.chat-box'));
+});
 
     </script>
 </body>
