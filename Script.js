@@ -37,16 +37,19 @@ function switchTo(target) {
 }
 
 // Track page visits using localStorage
-const counterContainer = document.querySelector('#visit_count');
-let visitCount = localStorage.getItem('page_view');
+document.addEventListener('DOMContentLoaded', function () {
+  const counterContainer = document.querySelector('#visit_count');
+  let visitCount = localStorage.getItem('page_view');
 
-if (visitCount) {
-  visitCount = parseInt(visitCount, 10) + 1;
-} else {
-  visitCount = 1;
-}
-localStorage.setItem('page_view', visitCount);
-counterContainer.textContent = visitCount;
+  if (visitCount) {
+    visitCount = parseInt(visitCount, 10) + 1;
+  } else {
+    visitCount = 1;
+  }
+
+  localStorage.setItem('page_view', visitCount);
+  counterContainer.textContent = visitCount;
+});
 
 // FAQ accordion toggle
 function toggleFAQ(element) {
