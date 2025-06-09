@@ -36,23 +36,21 @@ function switchTo(target) {
 }
 //FAQ Acordion
 // Select all faq-item elements
-const questions = document.querySelectorAll('.faq-question');
 
-    questions.forEach(q => {
-      q.addEventListener('click', () => {
-        // Close all questions first
-        questions.forEach(item => {
-          item.classList.remove('active');
-          item.querySelector('.icon').textContent = '+';
-        });
+  function toggleFAQ(element) {
+    const question = element;
+    const answer = question.nextElementSibling;
 
-        // If not already open, open this one
-        if (!q.classList.contains('active')) {
-          q.classList.add('active');
-          q.querySelector('.icon').textContent = '-';
-        }
-      });
-    });
+    question.classList.toggle('active');
+
+    if (question.classList.contains('active')) {
+      answer.style.display = 'block';
+    } else {
+      answer.style.display = 'none';
+    }
+  }
+
+
     document.getElementById('emailForm').addEventListener('submit', function (e) {
         e.preventDefault(); // stop actual submission
       
