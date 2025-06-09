@@ -553,6 +553,12 @@ i.fa-linkedin{
     border-radius: 5px;
     cursor: pointer;
 }
+.sample-question{
+    display:flex;
+    justify-content: center;
+    max-width:70%;
+    margin: 0 auto;
+}
   
 
 
@@ -845,27 +851,24 @@ input#user-input {
     padding: 12px;
     font-size: 1rem;
     border-radius: 10px;
-  }
-  .footer-content {
+}
+.footer-content {
     flex-direction: column;
     align-items: flex-start;
     gap: 15px;
     text-align: left;
     padding: 20px;
-  }
-
-  .social-icons {
+}
+.social-icons {
     justify-content: flex-start;
     flex-wrap: wrap;
     gap: 16px;
-  }
-
-  .social-icons i {
+}
+.social-icons i {
     font-size: 1.2rem;
-  }
-
-  .github-link,
-  .linkedin-link {
+}
+.github-link,
+.linkedin-link {
     font-size: 1rem;
     color: #3b82f6;
     text-decoration: none;
