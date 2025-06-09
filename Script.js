@@ -3,23 +3,21 @@
 let currentIndex = 0;
 
 function move_Slider(direction) {
-  const track = document.querySelector('.carousel-track');
-  const cards = document.querySelectorAll('.Product-card');
-  const totalSlides = cards.length;
+const track = document.querySelector('.carousel-track');
+const cards = document.querySelectorAll('.Product-card');
+const totalSlides = cards.length;
 
-  currentIndex += direction;
+currentIndex += direction;
 
   // Loop will go back to the last slide if we go before the first one
-  if (currentIndex < 0) {
+if (currentIndex < 0) {
     currentIndex = totalSlides - 1;
-  }
-
-  // Loop back to the first slide if we go past the last one
-  if (currentIndex >= totalSlides) {
+}
+// Loop back to the first slide if we go past the last one
+if (currentIndex >= totalSlides) {
     currentIndex = 0;
-  }
-
-  const slideWidth = cards[0].clientWidth;
+}
+const slideWidth = cards[0].clientWidth;
   track.style.transform = `translateX(-${slideWidth * currentIndex}px)`;
 }
 
@@ -52,20 +50,20 @@ counterContainer.textContent = visitCount;
 
 // FAQ accordion toggle
 function toggleFAQ(element) {
-  const question = element;
-  const answer = question.nextElementSibling;
+const question = element;
+const answer = question.nextElementSibling;
 
-  question.classList.toggle('active');
-  answer.style.display = question.classList.contains('active') ? 'block' : 'none';
+question.classList.toggle('active');
+answer.style.display = question.classList.contains('active') ? 'block' : 'none';
 }
 
-// Scroll-to-top button behavior
+//Scroll Behaviour
 const topBtn = document.getElementById('topBtn');
 
-window.onscroll = function () {
-  topBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
+window.onscroll = function () {// display block if the user scrolls down more than 200px
+topBtn.style.display = window.scrollY > 200 ? 'block' : 'none';
 };
 
 topBtn.onclick = function () {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+window.scrollTo({ top: 0, behavior: 'smooth' });
 };
