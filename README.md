@@ -25,7 +25,7 @@ We’ve created an accessible Assitive Technologies and hardware that empowers b
 
 ## 🌐 Live Website
 
-👉 Check it out here: [https://your-live-website-link.com](https://your-live-website-link.com)  
+👉 Check it out here: [Startup_portfolio](https://remmaabde.github.io/Startup-Potfolio/)  
 
 ---
 
