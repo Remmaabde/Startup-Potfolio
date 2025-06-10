@@ -260,7 +260,7 @@
     <script>
       let puterInitialized = false;
 
-// Your startup's personalized context - vibe with your origin story, mission, team, and vision
+// our startup's personalized context - vibe with your origin story, mission, team, and vision
 const StartUp_Profile = ` Our startup is called AMIBlind Assistant, founded by Reem Abdella a passionate computer science student from Ethiopia. 
 We always dreamt to empower and assist the visually impaired ethiopian people with smart assistive technology. 
 Our Main products are an AI-powered voice navigation tool using computer vision, 
@@ -322,7 +322,7 @@ function addMessage(content, isUser = false) {
 function getFallbackResponse(message) {
   message = message.toLowerCase();
 
-  if (message.includes('founder') || message.includes('who')) {
+  if (message.includes('founder') || message.includes('who') || message.includes('what')) {
     return "AMI Blind Assistant was founded by a passionate team and Founder Reem Abdella dedicated to empowering visually impaired people through accessible Computer Vision technology.";
   } else if (message.includes('problem') || (message.includes('issue'))) {
     return "We solve accessibility barriers faced by visually impaired individuals by offering voice guidance and computer vision features.";
