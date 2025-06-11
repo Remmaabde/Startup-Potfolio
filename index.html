@@ -115,8 +115,8 @@
 
           <section class="Audience">
             <div class="audience-toggle">
-  <button onclick="switchTo('User')" id="studentBtn" class="active">For Students</button>
-  <button onclick="switchTo('Partner')" id="mentorBtn">For Mentors</button>
+  <button onclick="switchTo('User')" id="studentBtn" class="active">For Users</button>
+  <button onclick="switchTo('Partner')" id="mentorBtn">For Partners</button>
 </div>
 
 <div class="audience-container">
@@ -151,7 +151,7 @@
     </div>
   </div>
   
-  <h2 class="Testimonals">Hear From Our Users</h2>
+  <h2 class="Testimonals" id="testimonal">Hear From Our Users</h2>
   <section class="testimonials">
     <div class="testimonial-card">
       <h3>Abebe Haile <br><small>Teacher & low-vision user</small></h3>
@@ -253,14 +253,14 @@
                 </div>
             </div>
         </footer>
-  
+        <button id="topBtn">⬆️</button>
         
     </div>
-    <button id="topBtn">⬆️</button>
+    
     <script>
       let puterInitialized = false;
 
-// our startup's personalized context - vibe with your origin story, mission, team, and vision
+// our startup's personalized context
 const StartUp_Profile = ` Our startup is called AMIBlind Assistant, founded by Reem Abdella a passionate computer science student from Ethiopia. 
 We always dreamt to empower and assist the visually impaired ethiopian people with smart assistive technology. 
 Our Main products are an AI-powered voice navigation tool using computer vision, 
