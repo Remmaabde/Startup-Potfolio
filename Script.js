@@ -31,8 +31,8 @@ function switchTo(target) {
   document.getElementById(target).classList.add('visible');
 
   // Toggle button styling
-  document.getElementById('studentBtn').classList.remove('active');
-  document.getElementById('mentorBtn').classList.remove('active');
+  document.getElementById('userBtn').classList.remove('active');
+  document.getElementById('PartnerBtn').classList.remove('active');
   document.getElementById(`${target}Btn`).classList.add('active');
 }
 

@@ -115,8 +115,8 @@
 
           <section class="Audience">
             <div class="audience-toggle">
-  <button onclick="switchTo('User')" id="studentBtn" class="active">For Users</button>
-  <button onclick="switchTo('Partner')" id="mentorBtn">For Partners</button>
+  <button onclick="switchTo('User')" id="userBtn" class="active">For Users</button>
+  <button onclick="switchTo('Partner')" id="PartnerBtn">For Partners</button>
 </div>
 
 <div class="audience-container">
@@ -352,7 +352,7 @@ async function sendMessage() {
   try {
     await initializePuter();
 
-    const fullPrompt = `${personalContext}\n\nUser question: ${message}\n\nPlease respond as AMI Blind Assistant's AI, providing accurate, friendly info based on the context.`;
+    const fullPrompt = `${StartUp_Profile}\n\nUser question: ${message}\n\nPlease respond as AMI Blind Assistant's AI, providing accurate, friendly info based on the context.`;
 
     // Here CAlling Puter 
     const response = await puter.ai.chat(fullPrompt, {

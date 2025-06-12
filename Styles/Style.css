@@ -132,7 +132,6 @@ img.Illustration{
     justify-content: flex-start;
     align-items: center;
     gap:20px;
-    align-items: center;
     margin-left:6%;
     //margin-top: 20px;
     padding-top:10px;
@@ -165,7 +164,7 @@ div.main{
 }
 .carousel-container {
     position: relative;
-    overflow: hidden;
+    overflow: hidden; // Cut out anything above z screens width.
     max-width: 80%; 
     max-height: 70vh;
     margin: 0 auto;
